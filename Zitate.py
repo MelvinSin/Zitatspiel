@@ -5,4 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if __name__ == "__main__":
-    bot.run(os.getenv('TOKEN'))  # Letzte Zeile
+
+    token = os.getenv('TOKEN')
+    bot.run(token)  # Letzte Zeile
