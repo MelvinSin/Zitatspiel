@@ -2,4 +2,4 @@
 /shelf/
 /workspace.xml
 .env
-_pycache_/
+__pycache__/
