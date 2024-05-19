@@ -164,7 +164,7 @@ Alice
 Alice
 Namefall
 Nullkisir
-Random und Nullkisir
+Nullkisir
 Alice
 Nullkisir
 Nullkisir
@@ -305,10 +305,8 @@ Leon
 Leon
 Namefall
 Namefall und Drache
-Emanuel
+Nick
 Drache
-Random
-Random
 Drache
 Namefall
 Namefall
@@ -318,7 +316,7 @@ Alice
 Namefall
 Alice
 Nullkisir
-Drache und Emanuel und Hanna
+Drache und Nick und Hanna
 Nullkisir
 Drache
 Alice
@@ -329,9 +327,9 @@ Drache
 Hanna
 Nullkisir und Alice
 Drache
-Nullkisir und Emanuel
+Nullkisir und Nick
 Drache
-Emanuel
+Nick
 Nullkisir
 Nullkisir
 Alice
@@ -357,7 +355,7 @@ Leon
 Leon und Alice und Diego
 Nullkisir
 Nullkisir
-Nullkisir und Lily
+Nullkisir und Nick
 Leon
 Nullkisir
 Namefall
@@ -366,8 +364,8 @@ Alice
 Drache
 Nullkisir
 Drache
-Lily
-Lily
+Nick
+Nick
 Drache und Nullkisir
 Nullkisir
 Nullkisir und Drache
@@ -396,7 +394,7 @@ Nullkisir
 Nullkisir
 Nullkisir und Drache und Alice
 Drache
-Alice und Lily
+Alice und Nick
 Nullkisir
 Nullkisir
 Drache und Alice
@@ -405,9 +403,9 @@ Drache
 Nullkisir
 Alice
 Alice und Nullkisir
-Lily
+Nick
 Drache
-Lily und Alice
+Nick und Alice
 Nullkisir
 Nullkisir
 Nullkisir

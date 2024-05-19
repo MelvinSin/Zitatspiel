@@ -1,12 +1,7 @@
-alles privat schicken mute this channel nur für commands
-Punkte + Runden verbleibend nicht löschen
-command für mögliche Namen als Eingabe
-Leaderboard zwischenspeicher sortiert nach Punkten
 skipp (? wie genau)
 Botbild
 Besserer botname
 formatieren von nachrichten mit mehreren zitierern
 automatisches hinzufügen von Zitaten falls bot 24/7
-noch runden verbleibend -1 fixen
 Punkte verschwinden?
 bei mehreren zitierern halbe punkte oder etwas der art
