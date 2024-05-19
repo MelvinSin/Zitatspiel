@@ -1,6 +1,5 @@
 skipp (? wie genau)
-Botbild
-Besserer botname
+Botbild Besserer botname
 formatieren von nachrichten mit mehreren zitierern
 automatisches hinzufügen von Zitaten falls bot 24/7
 Punkte verschwinden?
