@@ -1,3 +1,7 @@
+import asyncio
+import time
+import discord
+
 import config
 from discord.ext import commands
 import random
@@ -5,6 +9,17 @@ async def process_message(message, bot):
 
     if message.author == bot.user:
         return
+    if isinstance(message.channel, discord.DMChannel) and config.game_state == 'wait_for_dm':
+
+        for msg in config.answer_msgs:
+
+            if msg.author == message.author:
+                await message.channel.send('Du hast bereits geantwortet. Bitte geduld.')
+                return
+
+        config.answer_msgs.append(message)
+        await message.channel.send('Danke für deine Antwort! ')
+
     else:
         print(f'Message from {message.author}: {message.content}')
         await bot.process_commands(message)
@@ -42,6 +57,7 @@ async def add_player(ctx, member_name):
 
     # Füge das Mitglied zur Liste der Spieler hinzu
     config.players.append(player)
+    config.points.append(0)
     await ctx.send(f'{player.mention} wurde als Spieler hinzugefügt.')
 
 async def start(ctx):
@@ -56,18 +72,35 @@ async def start(ctx):
     await spielen(ctx)
 
 async def spielen(ctx):
-    zeilennummer = random.randint(1,zitat_count)
-    pair = zitate_auslesen(zeilennummer)
-    await ctx.send(pair[0])
 
-    await send_dm('TEST')
+    while True:
+        zeilennummer = random.randint(1, zitat_count)
+        pair = zitate_auslesen(zeilennummer)
+        await ctx.send(pair[0],delete_after=config.delete_after)
 
-    await ctx.send(pair[1])
+        await send_dm('Bitte gebe deine Lösung an: ')
+
+        for msg in config.answer_msgs:
+            await ctx.send(f'Spieler {msg.author} hat geantwortet: {msg.content}', delete_after=config.delete_after)
+            for i in range(len(config.players)):
+                if msg.author == config.players[i] and msg.content == pair[1]:
+                    config.points[i] += 1
+
+        await ctx.send(f'Richtig war: {pair[1]}\n', delete_after=config.delete_after)
+        for i in range(len(config.players)):
+            await ctx.send(f'Spieler {config.players[i]} hat {config.points[i]} Punkte!', delete_after=config.delete_after)
+
+        config.answer_msgs = []
 
 async def send_dm(msg):
 
     for player_name in config.players:
         await player_name.send(content=msg,delete_after=600)
+    config.game_state = 'wait_for_dm'
+    while len(config.players) != len(config.answer_msgs):
+        await asyncio.sleep(5)
+    config.game_state = 'dm_done'
+
 
 def zitate_auslesen(zeilennummer):
 
