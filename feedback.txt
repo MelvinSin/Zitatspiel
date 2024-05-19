@@ -2,5 +2,8 @@ skipp (? wie genau)
 Botbild Besserer botname
 formatieren von nachrichten mit mehreren zitierern
 automatisches hinzufügen von Zitaten falls bot 24/7
-Punkte verschwinden?
 bei mehreren zitierern halbe punkte oder etwas der art
+
+evt @add Nachricht des Spielers
+
+bild screenshot von discord grau

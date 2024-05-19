@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="bot theoretisch funktionabel">
+    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="feedback umgesetzt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feedback.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zitate.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zitate.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zitierer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zitierer.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716123975183</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bot theoretisch funktionabel">
+      <option name="closed" value="true" />
+      <created>1716139875212</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716139875213</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feedback umgesetzt">
+      <option name="closed" value="true" />
+      <created>1716139903181</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716139903181</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -161,6 +174,7 @@
     <MESSAGE value="dm + .txt" />
     <MESSAGE value="spielen" />
     <MESSAGE value="bot theoretisch funktionabel" />
-    <option name="LAST_COMMIT_MESSAGE" value="bot theoretisch funktionabel" />
+    <MESSAGE value="feedback umgesetzt" />
+    <option name="LAST_COMMIT_MESSAGE" value="feedback umgesetzt" />
   </component>
 </project>

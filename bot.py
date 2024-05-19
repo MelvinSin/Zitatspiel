@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import config
-import bot_functions
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -13,24 +12,35 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    import bot_functions
     await bot_functions.process_message(message, bot)
 
 @bot.command()
 async def init(ctx):
+    import bot_functions
     await bot_functions.initialize_game(ctx)
 
 @bot.command()
 async def add(ctx, *, member_name):
+    import bot_functions
     await bot_functions.add_player(ctx, member_name)
 
 @bot.command()
 async def start(ctx):
+    import bot_functions
     await bot_functions.start(ctx)
 
 @bot.command()
 async def rundenzahl(ctx, *, round_count):
+    import bot_functions
     await bot_functions.set_round_count(ctx,round_count)
 
 @bot.command()
 async def namen(ctx):
+    import bot_functions
     await bot_functions.name(ctx)
+
+@bot.command()
+async def befehle(ctx):
+    import bot_functions
+    await bot_functions.befehle(ctx)
