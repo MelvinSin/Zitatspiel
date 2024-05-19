@@ -5,4 +5,5 @@ answer_msgs = []
 debug_mode = False
 zitat_count = 0
 points = []
-delete_after = 10
+round_count = 0
+msgs_send = []

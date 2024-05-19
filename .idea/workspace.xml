@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="dm + .txt">
+    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="spielen">
+      <change afterPath="$PROJECT_DIR$/feedback.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zitate.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zitate.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zitierer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zitierer.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716065178462</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="spielen">
+      <option name="closed" value="true" />
+      <created>1716118528040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716118528040</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -139,6 +151,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="dm + .txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="dm + .txt" />
+    <MESSAGE value="spielen" />
+    <option name="LAST_COMMIT_MESSAGE" value="spielen" />
   </component>
 </project>

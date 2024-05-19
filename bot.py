@@ -26,3 +26,7 @@ async def add(ctx, *, member_name):
 @bot.command()
 async def start(ctx):
     await bot_functions.start(ctx)
+
+@bot.command()
+async def rundenzahl(ctx, *, round_count):
+    await bot_functions.set_round_count(ctx,round_count)

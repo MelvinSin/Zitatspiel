@@ -18,7 +18,7 @@ async def process_message(message, bot):
                 return
 
         config.answer_msgs.append(message)
-        await message.channel.send('Danke für deine Antwort! ')
+        config.msgs_send.append(await message.channel.send('Danke für deine Antwort! '))
 
     else:
         print(f'Message from {message.author}: {message.content}')
@@ -67,35 +67,52 @@ async def start(ctx):
     if len(config.players) == 0:
         await ctx.send(ctx,'Mindestens 1 Spieler erforderlich')
         return
-    await ctx.send('Spiel wurde gestartet.\n\n')
+    await ctx.send('Spiel wurde gestartet.\r\r')
     config.game_state = 'started'
     await spielen(ctx)
 
 async def spielen(ctx):
 
-    while True:
+    while config.round_count >= 0:
         zeilennummer = random.randint(1, zitat_count)
         pair = zitate_auslesen(zeilennummer)
-        await ctx.send(pair[0],delete_after=config.delete_after)
+        config.msgs_send.append(await ctx.send(pair[0]))
 
         await send_dm('Bitte gebe deine Lösung an: ')
 
         for msg in config.answer_msgs:
-            await ctx.send(f'Spieler {msg.author} hat geantwortet: {msg.content}', delete_after=config.delete_after)
+            config.msgs_send.append(await ctx.send(f'Spieler {msg.author} hat geantwortet: {msg.content}'))
             for i in range(len(config.players)):
                 if msg.author == config.players[i] and msg.content == pair[1]:
                     config.points[i] += 1
 
-        await ctx.send(f'Richtig war: {pair[1]}\n', delete_after=config.delete_after)
+        config.msgs_send.append(await ctx.send(f'Richtig war: {pair[1]}\n'))
         for i in range(len(config.players)):
-            await ctx.send(f'Spieler {config.players[i]} hat {config.points[i]} Punkte!', delete_after=config.delete_after)
+            config.msgs_send.append(await ctx.send(f'Spieler {config.players[i]} hat {config.points[i]} Punkte!'))
+
+        config.msgs_send.append(await ctx.send(f'Noch {config.round_count-1} Runden verbleibend'))
+
+        await asyncio.sleep(10)
+
+        for msg in config.msgs_send:
+            await msg.delete()
 
         config.answer_msgs = []
+        config.msgs_send = []
+        config.round_count -= 1
+    await ctx.send('Das Spiel ist um')
+
+    rankings = sorted(zip(config.players, config.points), key=lambda x: x[1], reverse=True)
+    ranking_message = "Rangliste:\n"
+    for rank, (player, point) in enumerate(rankings, start=1):
+        ranking_message += f"{rank}. {player}: {point} Punkte\n"
+    await ctx.send(ranking_message)
+
 
 async def send_dm(msg):
 
     for player_name in config.players:
-        await player_name.send(content=msg,delete_after=600)
+        config.msgs_send.append(await player_name.send(content=msg))
     config.game_state = 'wait_for_dm'
     while len(config.players) != len(config.answer_msgs):
         await asyncio.sleep(5)
@@ -112,3 +129,9 @@ def zitate_auslesen(zeilennummer):
 
     pair = (quotes, authors)
     return pair
+async def set_round_count(ctx, round_count):
+    if config.game_state == 'add_players':
+        config.round_count = int(round_count)
+        await ctx.send(f'Es werden {round_count} Runden gespielt.')
+    else:
+        await ctx.send('Rundenzahl aktuell nicht setzbar.')
