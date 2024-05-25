@@ -1,11 +1,10 @@
 game_state = 'ready'
 #0 = ready
-players = []
 answer_msgs = []
 debug_mode = False
 zitat_count = 0
-points = []
 round_count = 10
 msgs_send = []
 msgs_send_delete_later = []
 names = set()
+SEPERATOR = '-------------------------------------------------------------------------------------------------------------------------------'
