@@ -7,3 +7,11 @@ bei mehreren zitierern halbe punkte oder etwas der art
 evt @add Nachricht des Spielers
 
 bild screenshot von discord grau
+
+Datei mit Punkteverteilung Gesammt Punkte + Punkte / Rundenzahl
+mit !restart oder nach rundenende alles zurücksetzten und neue Partie möglich
+schön formatieren
+evt Befehl für Setting vor Rundenstart
+z.b. spiel methode umschreiben in viele kleine methoden generell code schöner machen
+
+bei mehreren personen auch mehrere personenn als antwort angeben können
