@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="feedback umgesetzt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feedback.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,9 @@
     &quot;accountId&quot;: &quot;15408910-aab3-4fd2-8e03-4075afc5a60c&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -62,7 +62,6 @@
   <component name="RunManager">
     <configuration name="Zitate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Discord Bot" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
