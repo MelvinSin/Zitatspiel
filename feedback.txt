@@ -2,9 +2,8 @@ skipp (? wie genau)
 Botbild Besserer botname
 formatieren von nachrichten mit mehreren zitierern
 automatisches hinzufügen von Zitaten falls bot 24/7
-bei mehreren zitierern halbe punkte oder etwas der art
 
-evt @add Nachricht des Spielers
+evt @add Nachricht des Spielers ???
 
 bild screenshot von discord grau
 
@@ -14,4 +13,3 @@ schön formatieren
 evt Befehl für Setting vor Rundenstart
 z.b. spiel methode umschreiben in viele kleine methoden generell code schöner machen
 
-bei mehreren personen auch mehrere personenn als antwort angeben können

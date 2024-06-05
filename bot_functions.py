@@ -25,11 +25,14 @@ async def process_dm(message):
     if message.content == '$namen':
         await namen_command(message.channel)
         return
-    if message.content not in config.names:
+    names = [name.strip() for name in message.content.split(' und ')]
+
+    name_answers = [name.strip() for name in config.pair[1].split(' und ')]
+
+    if not all(name in config.names for name in names) or len(names) != len(name_answers):
         await message.channel.send('Ungültige Eingabe.')
         return
     config.answer_msgs.append(message)
-
 
 @check_state(GameStateEnum.NOT_INITIALISED)
 async def init_command(ctx):
@@ -119,6 +122,10 @@ async def befehle_command(ctx):
     formatted_commands = '\n'.join(command_list)
     response = f'Command Liste:\n{formatted_commands}\n'
     await send_formatted(ctx, response)
+
+async def debug_command(ctx):
+    print("debug_mode")
+    config.debug_mode = True
 
 
 async def send_formatted(ctx, msg):

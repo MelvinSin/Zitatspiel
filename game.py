@@ -4,47 +4,60 @@ import config
 import bot_functions
 import random
 
-
 class ZitateSpiel:
     def __init__(self, ctx, zitat_count):
         self.ctx = ctx
         self.zitat_count = zitat_count
         self.players = []
         self.points = []
-
     async def add_player(self, player):
         self.players.append(player)
         self.points.append(0)
 
     async def spielen(self):
-        while config.round_count >= 1:
 
+        while config.round_count >= 1:
             zeilennummer = random.randint(1, self.zitat_count)
-            pair = bot_functions.zitate_auslesen(zeilennummer)
-            await self.ctx.send(f'Zitat: \n {pair[0]}')
-            await bot_functions.send_dm(f'Zitat: \n {pair[0]}', 0)
+            config.pair = bot_functions.zitate_auslesen(zeilennummer)
+            answer_names = [name.strip() for name in config.pair[1].split(' und ')]
+
+            if config.debug_mode:
+                await self.ctx.send(f'Lösung: \n {config.pair[1]}')
+
+            await self.ctx.send(f'Zitat: \n {config.pair[0]}')
+            await bot_functions.send_dm(f'Zitat: \n {config.pair[0]}', 0)
 
             dm = ''
             for msg in config.answer_msgs:
                 dm += f'Spieler {msg.author} hat geantwortet: {msg.content}\n'
 
                 for i in range(len(self.players)):
-                    if msg.author == self.players[i] and msg.content == pair[1]:
-                        self.points[i] += 1
+                    if len(answer_names) == 1:
+                        if msg.author == self.players[i] and msg.content == config.pair[1]:
+                            self.points[i] += 1
+                    else:
+                        points_per_name = 1 / (len(answer_names) + 1)
+                        if msg.author == self.players[i]:
+                            msg_contents = [name.strip() for name in msg.content.split(' und ')]
+                            for msg_content in msg_contents:
+                                if msg_content in answer_names:
+                                    self.points[i] += points_per_name
+                            identisch = True
+                            for x in range(len(msg_contents)):
+                                if msg_contents[x] != answer_names[x]:
+                                    identisch = False
+                            if identisch:
+                                self.points[i] += points_per_name
 
             await self.ctx.send(dm)
             await bot_functions.send_dm(dm, 0)
 
-            await self.ctx.send(f'Richtig war: {pair[1]}\n')
-            await bot_functions.send_dm(f'Richtig war: {pair[1]}\n', 0)
+            await self.ctx.send(f'Richtig war: {config.pair[1]}\n')
+            await bot_functions.send_dm(f'Richtig war: {config.pair[1]}\n', 0)
 
             for msg in config.msgs_send_delete_later:
                 await msg.delete()
             config.msgs_send_delete_later = []
-
-            # for i in range(len(config.players)):
-            #   config.msgs_send_delete_later.append(await ctx.send(f'Spieler {config.players[i]} hat {config.points[i]} Punkte!'))
-            #  await send_dm(f'Spieler {config.players[i]} hat {config.points[i]} Punkte!',1)
 
             await self.sort_ranking(self.ctx)
 
@@ -56,7 +69,7 @@ class ZitateSpiel:
                 await self.ctx.send(f'Noch {config.round_count - 1} Runden verbleibend')
                 await bot_functions.send_dm(f'Noch {config.round_count - 1} Runden verbleibend', 1)
 
-            await self.ctx.send('--------------------------------------------------------------------------------------')
+            await self.ctx.send(config.SEPERATOR)
 
             await asyncio.sleep(3)
 

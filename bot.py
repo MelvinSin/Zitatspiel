@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+import config
+
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='$', intents=intents)
@@ -51,3 +53,9 @@ async def namen(ctx):
 async def befehle(ctx):
     import bot_functions
     await bot_functions.befehle_command(ctx)
+
+
+@bot.command()
+async def debug(ctx):
+    import bot_functions
+    await bot_functions.debug_command(ctx)
