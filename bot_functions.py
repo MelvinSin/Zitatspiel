@@ -1,5 +1,6 @@
 import asyncio
 import discord
+import re
 from bot import bot
 from game_state import GameState, GameStateEnum
 import config
@@ -87,6 +88,9 @@ def zitate_auslesen(zeilennummer):
 
     with open('zitierer.txt', 'r', encoding='utf-8') as file:
         authors = file.readlines()[zeilennummer - 1].strip().strip('"')
+
+    quotes = re.sub(r"(\d+) Personen:", r"\n\1 Personen\n:", quotes)
+    quotes = re.sub(r"Person(\d+)\.", r"\nPerson\1:", quotes)
 
     pair = (quotes, authors)
     return pair

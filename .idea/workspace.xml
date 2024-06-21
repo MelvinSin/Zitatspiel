@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="bot_functions aufgeräumt + neue Dateien">
+    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="feedback neues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feedback.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716637055406</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feedback neues">
+      <option name="closed" value="true" />
+      <created>1717971974029</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717971974029</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -191,6 +198,7 @@
     <MESSAGE value="bot theoretisch funktionabel" />
     <MESSAGE value="feedback umgesetzt" />
     <MESSAGE value="bot_functions aufgeräumt + neue Dateien" />
-    <option name="LAST_COMMIT_MESSAGE" value="bot_functions aufgeräumt + neue Dateien" />
+    <MESSAGE value="feedback neues" />
+    <option name="LAST_COMMIT_MESSAGE" value="feedback neues" />
   </component>
 </project>

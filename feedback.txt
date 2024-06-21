@@ -1,6 +1,6 @@
 skipp (? wie genau)
 Botbild Besserer botname
-formatieren von nachrichten mit mehreren zitierern
+
 automatisches hinzufügen von Zitaten falls bot 24/7
 
 evt @add Nachricht des Spielers ???
