@@ -39,14 +39,14 @@ async def process_dm(message):
 async def init_command(ctx):
     global game
 
-    config.msgs_send.append(await ctx.send(
-        'Beginne das Spiel. Bitte füge mit $add Spieler hinzu und setze die Rundenzahl mit @rundenzahl x'))
+    await ctx.send(
+        'Beginne das Spiel. Bitte füge mit $add Spieler hinzu und setze die Rundenzahl mit @rundenzahl x')
     await namen_command(ctx)
     await befehle_command(ctx)
 
     with open('zitate.txt', 'r', encoding='utf-8') as file:
-        zitat_count = len(file.readlines())
-        game = ZitateSpiel(ctx, zitat_count)
+        config.zitat_count = len(file.readlines())
+        game = ZitateSpiel(ctx)
     GameState().set_state(GameStateEnum.SETUP)
 
 
@@ -64,7 +64,7 @@ async def add_command(ctx, member_name):
 
     # Füge das Mitglied zur Liste der Spieler hinzu
     await game.add_player(player)
-    config.msgs_send.append(await ctx.send(f'{player.mention} wurde als Spieler hinzugefügt.'))
+    await ctx.send(f'{player.mention} wurde als Spieler hinzugefügt.')
 
 
 @check_state(GameStateEnum.SETUP)
@@ -73,11 +73,9 @@ async def start_command(ctx):
         await ctx.send('Mindestens 1 Spieler erforderlich')
         return
 
-    for msg in config.msgs_send:
-        await msg.delete()
-    config.msgs_send = []
-    await ctx.send('Spiel wurde gestartet.\r\r')
-    await ctx.send(config.SEPERATOR)
+    await ctx.send('Spiel wurde gestartet.\r\r' + config.SEPERATOR)
+    for player_name in game.players:
+        await player_name.send(content='Spiel wurde gestartet.\r\r' + config.SEPERATOR)
     GameState().set_state(GameStateEnum.STARTED)
     await ZitateSpiel.spielen(game)
 
@@ -89,19 +87,21 @@ def zitate_auslesen(zeilennummer):
     with open('zitierer.txt', 'r', encoding='utf-8') as file:
         authors = file.readlines()[zeilennummer - 1].strip().strip('"')
 
-    quotes = re.sub(r"(\d+) Personen:", r"\n\1 Personen\n:", quotes)
+    quotes = re.sub(r"(\d+) Personen:", r"\1 Personen:", quotes)
     quotes = re.sub(r"Person(\d+)\.", r"\nPerson\1:", quotes)
 
     pair = (quotes, authors)
     return pair
 
-#TODO: Rundenzahl muss kleiner gleich Anzahl an Zitaten sein
+@check_state(GameStateEnum.SETUP)
 async def rundenzahl_command(ctx, round_count):
-    if config.game_state == 'add_players':
-        config.round_count = int(round_count)
-        await ctx.send(f'Es werden {round_count} Runden gespielt.')
+    if config.zitat_count < int(round_count):
+        await ctx.send(f'Zu viele Runden angegeben. Es dürfen max {config.zitat_count} Runden gespielt werden')
+        return
     else:
-        await ctx.send('Rundenzahl aktuell nicht setzbar.')
+        config.round_count = int(round_count)
+        config.init_round_count = int(round_count)
+        await ctx.send(f'Es werden {round_count} Runden gespielt.')
 
 
 async def namen_command(ctx):
@@ -128,7 +128,6 @@ async def befehle_command(ctx):
     await send_formatted(ctx, response)
 
 async def debug_command(ctx):
-    print("debug_mode")
     config.debug_mode = True
 
 async def aktualisieren_command(ctx):
@@ -141,12 +140,9 @@ async def send_formatted(ctx, msg):
     await ctx.send(formatted_msg)
 
 
-async def send_dm(msg, later):
+async def send_dm(msg):
     for player_name in game.players:
-        if later == 1:
-            config.msgs_send_delete_later.append(await player_name.send(content=msg))
-        else:
-            config.msgs_send.append(await player_name.send(content=msg))
+        await player_name.send(content=msg)
     config.game_state = 'wait_for_dm'
     while len(game.players) != len(config.answer_msgs):
         await asyncio.sleep(5)

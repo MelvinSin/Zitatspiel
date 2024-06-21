@@ -5,14 +5,7 @@ automatisches hinzufügen von Zitaten mit Hilfe von Reaktionen (TODO)
 
 Datei mit Punkteverteilung Gesammt Punkte + Punkte / Rundenzahl + andere interessante Fakten (TODO)
 mit !restart oder nach rundenende alles zurücksetzten und neue Partie möglich (TODO)
-schön formatieren
 evt Befehl für Setting vor Rundenstart
 z.b. spiel methode umschreiben in viele kleine methoden generell code schöner machen
-
-über Zitat Ausgabe eine freie Zeile für die Übersicht
-
-richtige antworten von letzter runde bleiben länger?
-
-keine dublikate als Zitate in einer Runde (TODO)
 
 statt festes Rundenende selber beenden können?
