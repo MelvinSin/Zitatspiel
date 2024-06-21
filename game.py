@@ -72,7 +72,6 @@ class ZitateSpiel:
         await self.ranking_sorted(rankings)
         await self.stats(rankings)
         #TODO: Alles zurücksetzten um neue Runde möglich zu machen
-        #TODO: Debug Mode um Statistiken nicht zu beeinflussen
 
     async def ranking_sorted(self, rankings):
         ranking_message = "Rangliste:\n"
