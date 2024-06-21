@@ -17,9 +17,9 @@ class ZitateSpiel:
     async def spielen(self):
 
         while config.round_count >= 1:
-            zeilennummer = random.randint(1, self.zitat_count)
-            config.pair = bot_functions.zitate_auslesen(zeilennummer)
-            answer_names = [name.strip() for name in config.pair[1].split(' und ')]
+            #TODO: Aufräumen
+
+            answer_names = await self.neues_zitat()
 
             if config.debug_mode:
                 await self.ctx.send(f'Lösung: \n {config.pair[1]}')
@@ -42,6 +42,7 @@ class ZitateSpiel:
                             for msg_content in msg_contents:
                                 if msg_content[i] == answer_names[i]:
                                     self.points[i] += points_per_name
+                #TODO: Neue Funktion statistiken.txt managen und aktualisieren für globale statistiken
 
             await self.ctx.send(dm)
             await bot_functions.send_dm(dm, 0)
@@ -78,6 +79,7 @@ class ZitateSpiel:
             await msg.delete()
 
         await self.sort_ranking(self.ctx)
+        #TODO: Alles zurücksetzten um neue Runde möglich zu machen
 
     async def sort_ranking(self, ctx):
         rankings = sorted(zip(self.players, self.points), key=lambda x: x[1], reverse=True)
@@ -89,3 +91,17 @@ class ZitateSpiel:
                 ranking_message += f"{rank}. {player}: {point} Punkte\n"
         await ctx.send(ranking_message)
         await bot_functions.send_dm(ranking_message, 1)
+
+    async def neues_zitat(self):
+
+        used_zeilennummern = []
+        zeilennummer = random.randint(1, self.zitat_count)
+
+        while zeilennummer in used_zeilennummern:
+            zeilennummer = random.randint(1, self.zitat_count)
+
+        used_zeilennummern.append(zeilennummer)
+
+        config.pair = bot_functions.zitate_auslesen(zeilennummer)
+        answer_names = [name.strip() for name in config.pair[1].split(' und ')]
+        return answer_names

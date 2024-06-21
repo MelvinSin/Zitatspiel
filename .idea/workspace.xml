@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="formatieren von nachrichten mit mehreren zitierern">
+    <list default="true" id="26477b65-f5e3-4955-821e-b9615f791c4a" name="Changes" comment="Grundlage Automatisch Zitate einlesen + Punktevergabe neu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feedback.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718976977555</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Grundlage Automatisch Zitate einlesen + Punktevergabe neu">
+      <option name="closed" value="true" />
+      <created>1718977544340</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718977544340</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -210,6 +217,7 @@
     <MESSAGE value="bot_functions aufgeräumt + neue Dateien" />
     <MESSAGE value="feedback neues" />
     <MESSAGE value="formatieren von nachrichten mit mehreren zitierern" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatieren von nachrichten mit mehreren zitierern" />
+    <MESSAGE value="Grundlage Automatisch Zitate einlesen + Punktevergabe neu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grundlage Automatisch Zitate einlesen + Punktevergabe neu" />
   </component>
 </project>

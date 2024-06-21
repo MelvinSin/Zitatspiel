@@ -95,7 +95,7 @@ def zitate_auslesen(zeilennummer):
     pair = (quotes, authors)
     return pair
 
-
+#TODO: Rundenzahl muss kleiner gleich Anzahl an Zitaten sein
 async def rundenzahl_command(ctx, round_count):
     if config.game_state == 'add_players':
         config.round_count = int(round_count)
