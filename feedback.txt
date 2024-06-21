@@ -13,7 +13,6 @@ schön formatieren
 evt Befehl für Setting vor Rundenstart
 z.b. spiel methode umschreiben in viele kleine methoden generell code schöner machen
 
-nur ein halber punkt bei mehreren Personen und nur wenn die Person an der richtigen Stelle steht
 über Zitat Ausgabe eine freie Zeile für die Übersicht
 
 richtige antworten von letzter runde bleiben länger?

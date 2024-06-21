@@ -59,3 +59,8 @@ async def befehle(ctx):
 async def debug(ctx):
     import bot_functions
     await bot_functions.debug_command(ctx)
+
+@bot.command()
+async def aktualisieren(ctx):
+    import bot_functions
+    await bot_functions.aktualisieren_command(ctx)

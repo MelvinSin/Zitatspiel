@@ -131,6 +131,10 @@ async def debug_command(ctx):
     print("debug_mode")
     config.debug_mode = True
 
+async def aktualisieren_command(ctx):
+#TODO: per Reaktion alle eingelesenen Zitate markieren
+#TODO: Alle Nachrichten im Zitate Channel einlesen und in Datenbank einführen falls keine Reaktion auf die Nachricht von Bot
+    pass
 
 async def send_formatted(ctx, msg):
     formatted_msg = f'{config.SEPERATOR}\n{msg}{config.SEPERATOR}'

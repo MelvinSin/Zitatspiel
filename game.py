@@ -36,18 +36,12 @@ class ZitateSpiel:
                         if msg.author == self.players[i] and msg.content == config.pair[1]:
                             self.points[i] += 1
                     else:
-                        points_per_name = 1 / (len(answer_names) + 1)
+                        points_per_name = 1 / len(answer_names)
                         if msg.author == self.players[i]:
                             msg_contents = [name.strip() for name in msg.content.split(' und ')]
                             for msg_content in msg_contents:
-                                if msg_content in answer_names:
+                                if msg_content[i] == answer_names[i]:
                                     self.points[i] += points_per_name
-                            identisch = True
-                            for x in range(len(msg_contents)):
-                                if msg_contents[x] != answer_names[x]:
-                                    identisch = False
-                            if identisch:
-                                self.points[i] += points_per_name
 
             await self.ctx.send(dm)
             await bot_functions.send_dm(dm, 0)
