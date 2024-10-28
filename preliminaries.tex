@@ -1,0 +1,34 @@
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\begin{definition}[Markov chains]
+\label{def:Markov Chains}
+A Markov Chain C is a tuple $(Q,\delta)$ where Q is a finite set of states and $\delta: Q \rightarrow \mathbb{D}(Q)$ is a probabilistic transition function, where $\mathbb{D}(Q)$ is the set of all probabilistic distribution on a finite set $Q$. A probabilistic distribution on $Q$, is a function $f: Q\rightarrow\mathbb{Q}_{\geq0}$ such that $\sum_{q\in Q}f(q)=1$. 
+\end{definition}
+
+\noindent
+A non-empty finite word $\varrho = p_1p_2...p_n$ over $Q$ is defined as a run of Markov Chain. The probability of the run is $\prod_{0\leq i < n}\delta(p_i,p_{i+1})$. $\varrho$ reaches $q$, if $q = p_i$ for some $0\leq i\leq n$. 
+\newline\\
+The probability of eventually reaching a set of state $T\subseteq Q$ in C starting from $q_0$ can be denoted as $\mathbb{P}_{q_0}^C[\lozenge T]$. $\lozenge T$ is equivalent to $Q\bigcup T$, Q until T. Since not necessary every state in Q is reached before T, the probability $\mathbb{P}_{q_0}^C[S\bigcup T]$ with $S\subseteq Q$ is created. If $q_0 \in T$, the probability is 1. Otherwise, the probability is calculated as follows: 
+\begin{align*}
+    \sum\{\prod_{0\leq i< n}\delta(q_i,q_{i+1}) ~|~ q_0...q_{n-1}\in (S~\backslash~ T) ~\&~ q_n \in T\ \text{ for } n\geq 1\}
+\end{align*}
+\begin{lemma}
+\label{lemma 1}
+Consider a Markov Chain $C=(Q,\delta)$ set of states $U,T\subseteq Q$, and a state $q_0\in Q\backslash U$. If $\mathbb{P}_{q_0}^C[(Q\backslash U)\bigcup T]=0$, then
+\begin{align*}
+    \mathbb{P}_{q_0}^C[\lozenge T] = \sum_{u\in U}\mathbb{P}_{q_0}^C[(Q\backslash U) \bigcup u]\mathbb{P}_{q_0}^C[\lozenge T]
+\end{align*}
+\end{lemma}
+\begin{definition}
+    
+\end{definition}
+\begin{theorem}[]
+\label{the:nameOfTheorem}
+Let A
+\begin{proof}
+	Here you write the proof of the theorem.
+\end{proof}
+\end{theorem}
+
+
