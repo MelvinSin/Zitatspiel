@@ -1,6 +1,9 @@
 \section{Preliminaries}
 \label{sec:preliminaries}
 
+\subsection{Stochastic Models}
+\label{sec:Stochastic Models}
+
 \begin{definition}[Markov chains]
 \label{def:Markov Chains}
 A Markov Chain $\mathcal{C}$ is a tuple $(Q, \delta)$ where Q is a finite set of states and 
@@ -43,7 +46,7 @@ If $\mathbb{P}^{q_0}_\mathcal{C}[(Q\backslash U)\bigcup T]=0$, then
 
 \begin{definition}[Markov decision processes]
 \label{Markov decision processes}
-A (finite and discrete-time) Markov decision processes, MDP, M, is a tuple $(Q,A,\delta,T)$ 
+A (finite and discrete-time) Markov decision processes, MDP, $\mathcal{M}$, is a tuple $(Q,A,\delta,T)$ 
 where Q is a finite set of states, A a finite set of actions, $\delta: Q \times A \rightarrow \mathbb{D}(Q)$ 
 a probabilistic transition function, and $T\subseteq Q$ a set of target state.
 \end{definition}
@@ -57,6 +60,28 @@ $\delta(q|p,a)$ for convenience.
 A (memoryless deterministic) strategy $\sigma$ in an MDP M = $(Q,A,\delta,T)$ is a function $\sigma: Q\rightarrow A$.
 \end{definition}
 
-\textit{From MDPs to Chains}
+\noindent
+\textit{From MDPs to Chains} An MDP $\mathcal{M} = (Q,A,\delta,T)$ and a Markov Chain $M^\sigma = (Q, \mu)$, 
+where a strategy $\sigma$ is applied on. $\mu$ is defined as follows: $\mu(q)=\delta(q,\sigma(q))$ for all $q\in Q$.
+The probability of q, $\mu(q)$, is the same as $\delta(q,\sigma(q))$, where $\sigma(q)$ gives the action assigned to q. 
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=1\linewidth]{pictures/strategies.png}
+	\end{center}
+	\caption{MDP on the left and 
+    on the right a Markov chain induced by the left MDP. \cite{10.1007/978-3-319-89366-2_20}}
+	\label{fig:strategies}
+\end{figure}
 
+\noindent
+The MDP on the left in Figure \ref{fig:strategies} has the actions $\{a, b\}$. The states are shown as circles,
+the states with double circles are target states, the squares are distributions. 
+The arrows from states to distributions shows which action is used and the arrows from distributions to states are probabilities.
+\newline
+\\
+The strategy $\sigma$ for the right Markov chain maps as follows: $\{p \mapsto a, q \mapsto b\}$ i.e. $\sigma(p) = a, \sigma(q) = b$.
+Since the strategy $\sigma$ is applied on the Markov chain, the arrows with actions are removed. 
+With the Markov chain, the easier probability to calculate would be $\mathbb{P}^{q}_{\mathcal{M}^\sigma}[\lozenge T] = \frac{3}{4}$.
+The probability is written on the arrow from the distributions, after the state q, to the target state.
 
+\subsection{Reachability Games Against Nature}

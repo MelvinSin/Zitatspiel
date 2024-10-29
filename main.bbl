@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{10.1007/978-3-319-89366-2_20}
+S.~Le~Roux and G.~A. P{\'e}rez.
+\newblock The complexity of graph-based reductions for reachability in markov decision processes.
+\newblock In C.~Baier and U.~Dal~Lago, editors, {\em Foundations of Software Science and Computation Structures}, pages 367--383, Cham, 2018. Springer International Publishing.
 
 \end{thebibliography}
