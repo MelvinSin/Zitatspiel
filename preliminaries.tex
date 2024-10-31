@@ -85,7 +85,38 @@ With the Markov chain, the easier probability to calculate would be $\mathbb{P}^
 The probability is written on the arrow from the distributions, after the state q, to the target state.
 
 \subsection{Reachability Games Against Nature}
-It is often difficult to determine the probability $\mathbb{P}^{q_0}_\mathcal{C}[\lozenge]$. 
+It is often difficult to determine the probability $\mathbb{P}^{q_0}_\mathcal{C}[\lozenge T]$. 
 That is why families of MDP with the same support, where the probabilities are abstracted, will be considered. 
 The focus is directed to the underlying directed graph from the MDP, where a game against nature is played on.
-Given an MDP $\mathcal{M}=(Q,A,\delta,T)$
+Given an MDP $\mathcal{M}=(Q,A,\delta,T)$, the underlying directed graph $\mathcal{G}_\mathcal{M}=(V,E)$ with 
+$V:= Q\cup (Q\times A)$ and $E:={(q,\langle q,a\rangle)\in Q\times (Q\times A)}\cup{(\langle p,a\rangle,q)~|~\delta(q|p,a)>0}$.
+To simplify, the vertex set consists of state vertices and state-action vertices. 
+The edges consist of state to state-action edges $(q,\langle q,a\rangle)$ 
+state-action to next state edges $(\langle p,a\rangle,q)$, where $\delta(q|p,a)>0$. 
+\textit{Nature} controls the vertices $Q\times A$ in $\mathcal{G}_\mathcal{M}$. The game is played on the following arena. 
+
+\begin{definition}[Target Arena]
+\label{def:target arena}
+A target arena is a tuple $\mathcal{A}:= (V,V_P,E,T)$ with the bipartite directed graph $(V_P,V_N,E)$, and $T\subseteq V_P$. 
+$V_N:= V\backslash V_P$ and for all $u\in V_N$, $uE \neq \emptyset$ with $uE$ being the set of successors of $u$. 
+    
+\end{definition}
+
+\noindent
+In this game \textit{Nature} controls the vertices $V_N$ and \textit{Protagonist} controls the vertices $V_P$. 
+In order to make the arena into an MDP, a family of probability distributions $\mu$ using the arena $\mathcal{A}$ will be applied to the MDP.
+Let the MDP $\mathcal{A}_\mu$ be defined as follows: $\mathcal{A}_\mu = (Q, A, \delta, T)$ with $\mu =(\mu_u \in \mathbb{D}(uE))_{u\in V_N},~ 
+Q=V_P \uplus\{\perp\},~ A=V_N$. $\delta(q|p,a)$ is $\mu_a(q)$ if $(p,a)(a,q)\in E$ and otherwise 0. 
+For all $p\in V_P\cup \{\perp\}$ and $a\in A$, $\delta(\perp|p,a)= 1$, if $(p,a) \not\in E$.
+\newline
+\\
+The value of the vertex on the target arena $\mathcal{A}$ differentiate between vertices from $V_P$ and $ V_N$. 
+The maximal reachability probability value of both are defined with respect of full-support probability distributions $\mu$. 
+For $v\in V_P$ the value is defined as $Val^\mu(v):= max_\sigma \mathbb{P}^v_{\mathcal{A}^\sigma_\mu}[\lozenge T]$. 
+That means the max reachability probability value of a vertex from the Protagonist is 
+the maximal probability of reaching T from v in $\mathcal{A}^\sigma_\mu$, 
+the target arena induced with the strategy $\sigma$ and the probability distribution $\mu$. 
+For $u\in V_N$ the value is defined as $Val^\mu(u):=\sum\{\mu_u(v)Val^\mu(v)~|~v\in uE\}$, with $Val^\mu(v)$ defined above, 
+since the arena is a bipartite directed graph.
+
+
