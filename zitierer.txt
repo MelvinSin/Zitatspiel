@@ -592,11 +592,11 @@ Alice und Drache
 Drache
 Nullkisir
 Nullkisir
-Kevin
+Nullkisir
 Nullkisir
 Leon
 Leon
-namefall
+Namefall
 Leon
 Teddy und Leon
 Namefall
@@ -623,8 +623,8 @@ Nullkisir und Leon
 Nullkisir und Leon und Alice
 Hitler
 Hitler
-Kevin
-Kevin
+Nullkisir
+Nullkisir
 Leon und Alice
 Diego
 Namefall
@@ -695,7 +695,7 @@ Nullkisir
 Alice und Leon
 Alice
 Nick
-Kevin
+Nullkisir
 Namefall und Nick
 Leon und Nick
 Nick und Camo
@@ -749,7 +749,7 @@ Leon
 Alice und Drache
 Leon
 Leon
-Alice und leon
+Alice und Leon
 Drache
 Leon
 Leon
